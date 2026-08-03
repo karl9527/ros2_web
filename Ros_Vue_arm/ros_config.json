@@ -1,0 +1,83 @@
+{
+    "tasks": {
+        "startup": [
+            {
+                "id": "foxglove",
+                "description": "Foxglove 数据桥接 (高带宽模式)",
+                "command": "ros2",
+                "args": [
+                    "run",
+                    "foxglove_bridge",
+                    "foxglove_bridge",
+                    "--ros-args",
+                    "-p",
+                    "include_hidden:=true",
+                    "-p",
+                    "send_buffer_limit:=100000000",
+                    "-p",
+                    "num_threads:=4",
+                    "-p",
+                    "max_qos_depth:=10",
+                    "-p",
+                    "min_qos_depth:=10"
+                ],
+                "delay": 0
+            }
+        ],
+        "mapping": [
+            {
+                "id": "mapCartographer",
+                "description": "Cartographer 建图算法",
+                "command": "ros2",
+                "args": [
+                    "launch",
+                    "slam_gmapping",
+                    "slam_gmapping.launch.py"
+                ],
+                "delay": 0
+            }
+        ],
+        "navigation": [
+            {
+                "id": "nav2",
+                "description": "Nav2 导航栈 (AMCL + 路径规划)",
+                "command": "ros2",
+                "args": [
+                    "launch",
+                    "xuegecar_navigation2",
+                    "navigation2.launch.py"
+                ],
+                "delay": 0
+            }
+        ]
+    },
+    "save_map": {
+        "command": "ros2",
+        "args": [
+            "run",
+            "nav2_map_server",
+            "map_saver_cli",
+            "-f"
+        ],
+        "description": "保存地图（-f 后追加地图名和路径）",
+        "save_dir": "/root/chuyun_ws/src/xuegecar_navigation2/maps"
+    },
+    "maps_dir": "/root/chuyun_ws/src/xuegecar_navigation2/maps",
+    "camera": {
+        "stream_url": "http://192.168.31.194:8081/"
+    },
+    "topics": {
+        "cmd_vel": "/cmd_vel",
+        "battery": "/battery",
+        "map": "/map",
+        "costmap": "/global_costmap/costmap",
+        "scan": "/scan",
+        "tf": "/tf",
+        "odom": "/odom",
+        "plan": "/plan",
+        "goal_pose": "/goal_pose",
+        "initial_pose": "/initialpose",
+        "navigate_feedback": "/navigate_to_pose/_action/feedback",
+        "imu": "/imu"
+    }
+}

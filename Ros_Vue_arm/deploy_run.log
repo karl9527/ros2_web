@@ -1,0 +1,52 @@
+---------------------------------------------------
+正在启动机器人中控台...
+工作目录: /root/Ros_Vue
+---------------------------------------------------
+检查 Node.js 环境...
+检查 ROS 2 依赖...
+提示: 未检测到 ROS 2 环境，尝试加载默认安装路径...
+发现 xuegecar 工作空间，正在加载环境...
+OK: Foxglove Bridge 已准备就绪。
+
+中控台即将运行。
+本机访问地址: http://localhost:5173
+外部设备访问: http://192.168.31.212:5173
+按下 Ctrl+C 可停止运行。
+---------------------------------------------------
+正在启动后端服务 (端口 3000)...
+ROS 2 运行服务后端已启动并监听在 http://localhost:3000
+正在触发自动启动服务...
+收到启动任务请求: startup
+正在启动前端界面...
+[foxglove] 启动: Foxglove 数据桥接 (高带宽模式) (ros2 run foxglove_bridge foxglove_bridge --ros-args -p include_hidden:=true -p send_buffer_limit:=100000000 -p num_threads:=4 -p max_qos_depth:=10 -p min_qos_depth:=10)
+
+> robot-console@1.0.0 dev
+> vite --host 0.0.0.0
+
+Re-optimizing dependencies because vite config has changed
+
+  VITE v5.4.21  ready in 1880 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.31.212:5173/
+  ➜  Network: http://192.168.31.194:5173/
+[INFO] [1785564711.841101768] [foxglove_bridge]: Starting foxglove_bridge (humble, 3.4.2@)
+[2026-08-01T06:11:51Z INFO  foxglove::websocket::server] Started server on 0.0.0.0:8765
+[INFO] [1785564711.846007071] [foxglove_bridge]: Server listening on port 8765
+[INFO] [1785564711.866722236] [foxglove_bridge]: Advertising new channel 2 for topic "/rosout"
+[INFO] [1785564711.872307535] [foxglove_bridge]: Advertising new channel 3 for topic "/parameter_events"
+[2026-08-01T06:14:08Z INFO  foxglove::websocket::server] Registered client 192.168.31.114:61451
+[INFO] [1785564848.585108596] [foxglove_bridge]: Client ID 1 is advertising "/cmd_vel" (geometry_msgs/Twist) on channel 1 with encoding "json"
+[INFO] [1785564848.585482427] [foxglove_bridge]: Advertising new channel 4 for topic "/cmd_vel"
+[INFO] [1785564848.613218882] [foxglove_bridge]: Client ID 1 is advertising "/goal_pose" (geometry_msgs/PoseStamped) on channel 2 with encoding "json"
+[INFO] [1785564848.632699096] [foxglove_bridge]: Client ID 1 is advertising "/initialpose" (geometry_msgs/PoseWithCovarianceStamped) on channel 3 with encoding "json"
+[INFO] [1785564849.087160068] [foxglove_bridge]: Advertising new channel 5 for topic "/goal_pose"
+[INFO] [1785564849.088436435] [foxglove_bridge]: Advertising new channel 6 for topic "/initialpose"
+[2026-08-01T06:15:18Z INFO  foxglove::websocket::connected_client::poller] Connection closed by client 192.168.31.114:61451
+[INFO] [1785564918.474572921] [foxglove_bridge]: Client ID 1 is no longer advertising /goal_pose (0 subscribers) on channel 2
+[INFO] [1785564918.475009335] [foxglove_bridge]: Client ID 1 is no longer advertising /cmd_vel (0 subscribers) on channel 1
+[INFO] [1785564918.477423570] [foxglove_bridge]: Client ID 1 is no longer advertising /initialpose (0 subscribers) on channel 3
+[2026-08-01T06:15:18Z INFO  foxglove::websocket::server] Unregistered client 192.168.31.114:61451
+[INFO] [1785564918.975837024] [foxglove_bridge]: Removing channel 6 for topic "/initialpose" (geometry_msgs/msg/PoseWithCovarianceStamped)
+[INFO] [1785564918.976065022] [foxglove_bridge]: Removing channel 5 for topic "/goal_pose" (geometry_msgs/msg/PoseStamped)
+[INFO] [1785564918.976133522] [foxglove_bridge]: Removing channel 4 for topic "/cmd_vel" (geometry_msgs/msg/Twist)
